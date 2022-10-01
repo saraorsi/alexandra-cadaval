@@ -1,0 +1,21 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  watch: true,
+  entry: {
+    app: ["./assets/scss/styles.scss", "./assets/js/app.js"],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+      },
+    ],
+  },
+};
