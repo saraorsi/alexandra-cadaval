@@ -19,11 +19,23 @@
     font-style: italic;
 }
 
+:root{
+    --gutter: 3.2rem;
+    --white: #FFFFFF;
+    --black: #000000;
+    font-size: clamp(.9rem, 1.05vw, 1.2rem);
+    line-height: 1.3;
+    @media (max-width: 768px) {
+        --gutter: 2.8rem;
+    }
+    @media (max-width: 576px) {
+        --gutter: 1.5rem;
+    }
+}
+
 
 body{
     font-family: "tiempos";
-    font-size: 15px;
-    line-height: 1.3;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -44,4 +56,7 @@ a{
 
 .big-text{
     font-size: 1.7rem;
+    @media (max-width: 576px) {
+        font-size: 1.25rem;
+    }
 }

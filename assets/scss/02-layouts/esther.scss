@@ -4,9 +4,76 @@
     &__title{
         font-size: 8rem;
         margin: 0;
+        @media (max-width: 768px) {
+            font-size: 6rem;
+        }
+        @media (max-width: 576px) {
+            font-size: 4.2rem;
+            line-height: 1;
+        }
     }
     .row{
-        margin: 0 0 3rem 0;
+        margin-bottom: 3rem;
+    }
+    &__gallery{
+        margin: 0 calc(var(--gutter) * -1);
+        &__image{
+            position: relative;
+            width: 100%;
+            padding-bottom: 50%;
+            img{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                padding-left: var(--gutter);
+                padding-right: var(--gutter);
+            }
+            figcaption{
+                position: absolute;
+                writing-mode: vertical-rl;
+                top: 0;
+                bottom: 0;
+                left: 1.25rem;
+                text-transform: uppercase;
+                transform: rotate(180deg);
+            }
+        }
+        .slick-dots {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 3rem 0;
+            z-index: 20;
+            list-style-type: none;        
+                li {
+                    margin: 0 0.35rem;
+                    &:first-child:last-child {
+                        display: none;
+                       }
+                }
+                button {
+                    display: block;
+                    width: .5rem;
+                    height: .5rem;
+                    padding: 0;
+                    
+                    border: none;
+                    border-radius: 100%;
+                    background-color: rgb(138, 138, 138);
+                    
+                    text-indent: -9999px;
+                    cursor: pointer;
+                }
+                li.slick-active button {
+                    background-color: black;
+                }
+            
+        }
+  
     }
     &__image{
         position: relative;
@@ -36,14 +103,42 @@
             display: flex;
             flex-wrap: wrap;
             border-top: 1px solid #c3c3c3;
+            margin-bottom: 3rem;
         }
         &__card{
             flex: 0 0 50%;
-            padding-bottom: 35%;
+            padding: 2.5rem 5rem;
+            @media (max-width: 576px) {
+                padding: 1rem .5rem;
+            }
             border-bottom: 1px solid #c3c3c3;
             &:nth-child(odd){
                 border-right: 1px solid #c3c3c3;
             }
+            &__image{
+                img{
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+                figcaption{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: 2.5rem;
+                    @media (max-width: 576px) {
+                        margin-top: .5rem;
+                        gap: 1rem;
+                        font-size: .75rem;
+                    }
+                }
+            }
         }
+    }
+    &__contact-btn{
+        margin: 3rem 0 2rem 0;
+        padding: 1rem 5rem;
+        border-radius: 3rem;
+        border: none;
     }
 }
